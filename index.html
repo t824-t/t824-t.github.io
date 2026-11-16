@@ -4,35 +4,347 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Java・Spring Boot・AWSを活用したWebアプリケーション開発のポートフォリオ">
   <title>Portfolio | t824-t</title>
   <style>
-    body {
-      font-family: sans-serif;
-      background: #f5f7fb;
-      color: #243047;
-      margin: 0;
-      padding: 60px 24px;
-      text-align: center;
+    :root {
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #334155;
     }
-    h1 { font-size: 36px; }
-    p { line-height: 1.8; }
-    a { color: #2563eb; }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Noto Sans JP", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(100% - 40px, 1000px);
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 100px 0 90px;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.4;
+      margin: 18px 0;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin: 0 0 25px;
+    }
+
+    h3 { margin-top: 0; }
+
+    .lead {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    section {
+      padding: 45px 0;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .tag {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+
+    .card ul {
+      padding-left: 22px;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      padding: 30px 0;
+      margin-top: 50px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero { padding: 65px 0; }
+
+      .grid { grid-template-columns: 1fr; }
+
+      .card { padding: 22px; }
+
+      section { padding: 32px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
-  <h1>Portfolio</h1>
-  <p>Java・Spring Boot・AWSを活用したWebアプリケーションを開発しています。</p>
-  <h2>制作実績</h2>
-  <p>Nutrition Tracker（栄養管理アプリ）</p>
-  <p>
-    <a href="https://taikaku-nutrition.duckdns.org/">
-      公開アプリを見る
-    </a>
-  </p>
-  <p>
-    <a href="https://github.com/t824-t/nutrition-tracker">
-      GitHubでソースコードを見る
-    </a>
-  </p>
+
+<header>
+  <nav class="container" aria-label="メインナビゲーション">
+    <a class="logo" href="#">t824-t / Portfolio</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <div class="hero">
+    <div class="eyebrow">SOFTWARE ENGINEER PORTFOLIO</div>
+    <h1>技術を学び、<br>課題を解決する。</h1>
+    <p class="lead">
+      Java・Spring Bootを中心にWebアプリケーションを開発しています。
+      AWSでの公開・運用にも取り組み、設計から実装、テスト、
+      デプロイまで一貫して学習・実践しています。
+    </p>
+    <div class="buttons">
+      <a class="button primary" href="#projects">制作実績を見る</a>
+      <a class="button" href="https://github.com/t824-t"
+         target="_blank" rel="noopener noreferrer">GitHubを見る</a>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="card">
+      <h3>自己紹介</h3>
+      <p>
+        異業種での実務経験を経て、ソフトウェア開発を学んでいます。
+        オーストラリアで約4年間働いた経験があり、
+        英語環境で新しい技術を習得してきました。
+      </p>
+      <p>
+        職業訓練でプログラミングを学び、
+        現在はJava・Spring Boot・AWSを活用した個人開発を通じて、
+        実践的な開発スキルの向上に取り組んでいます。
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <article class="card">
+      <div class="eyebrow">WEB APPLICATION</div>
+      <h3>Nutrition Tracker｜栄養管理アプリ</h3>
+      <p>
+        食事・栄養目標・体重を一元管理するWebアプリケーションです。
+        日々の記録や栄養バランスの可視化を通じて、
+        継続しやすい栄養管理を目指して開発しました。
+      </p>
+
+      <div class="tags">
+        <span class="tag">Java 17</span>
+        <span class="tag">Spring Boot</span>
+        <span class="tag">Spring Security</span>
+        <span class="tag">Thymeleaf</span>
+        <span class="tag">H2</span>
+        <span class="tag">AWS EC2</span>
+        <span class="tag">nginx</span>
+      </div>
+
+      <h4>主な機能</h4>
+      <ul>
+        <li>食事の登録・編集・削除、検索</li>
+        <li>カロリー・PFCの目標管理</li>
+        <li>栄養情報のダッシュボード表示</li>
+        <li>体重記録・推移グラフ</li>
+        <li>ユーザー認証とユーザー別データ管理</li>
+      </ul>
+
+      <h4>工夫した点</h4>
+      <ul>
+        <li>MVC構成による役割分離</li>
+        <li>Spring Securityによる認証・CSRF対策</li>
+        <li>AWS EC2・HTTPSによる公開運用</li>
+        <li>画面表示・セキュリティ関連の自動テスト</li>
+      </ul>
+
+      <div class="project-links">
+        <a class="button primary"
+           href="https://taikaku-nutrition.duckdns.org/"
+           target="_blank" rel="noopener noreferrer">アプリを試す</a>
+        <a class="button"
+           href="https://github.com/t824-t/nutrition-tracker/tree/feature/ui-security-improvements"
+           target="_blank" rel="noopener noreferrer">ソースコードを見る</a>
+      </div>
+    </article>
+  </section>
+
+  <section id="skills">
+    <h2>Skills & Certifications</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>技術スキル</h3>
+        <div class="tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Spring Security</span>
+          <span class="tag">SQL</span>
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">Git / GitHub</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Maven</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>取得資格</h3>
+        <ul>
+          <li>基本情報技術者試験</li>
+          <li>AWS Certified Cloud Practitioner</li>
+          <li>AWS Certified Solutions Architect – Associate</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>
+        制作物や開発履歴はGitHubで公開しています。
+      </p>
+      <a class="button" href="https://github.com/t824-t"
+         target="_blank" rel="noopener noreferrer">
+        GitHubプロフィール
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 t824-t. All rights reserved.
+  </div>
+</footer>
+
 </body>
 </html>
