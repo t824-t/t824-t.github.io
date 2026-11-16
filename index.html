@@ -17,7 +17,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -67,9 +66,12 @@
       color: var(--muted);
     }
 
-    .hero {
-      padding: 100px 0 90px;
+    h2 {
+      font-size: 26px;
+      margin: 0 0 25px;
     }
+
+    h3 { margin-top: 0; }
 
     .eyebrow {
       color: var(--muted);
@@ -78,51 +80,9 @@
       letter-spacing: 0.12em;
     }
 
-    h1 {
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.4;
-      margin: 18px 0;
-    }
+    section { padding: 45px 0; }
 
-    h2 {
-      font-size: 26px;
-      margin: 0 0 25px;
-    }
-
-    h3 { margin-top: 0; }
-
-    .lead {
-      color: var(--muted);
-      max-width: 650px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 11px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      border: 1px solid var(--border);
-      background: var(--white);
-    }
-
-    .button.primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-    }
-
-    section {
-      padding: 45px 0;
-    }
+    main { padding-top: 35px; }
 
     .card {
       background: var(--white);
@@ -131,9 +91,7 @@
       padding: 28px;
     }
 
-    .card p {
-      color: var(--muted);
-    }
+    .card p { color: var(--muted); }
 
     .grid {
       display: grid;
@@ -156,13 +114,8 @@
       font-size: 12px;
     }
 
-    .card ul {
-      padding-left: 22px;
-    }
-
-    .card li {
-      margin-bottom: 8px;
-    }
+    .card ul { padding-left: 22px; }
+    .card li { margin-bottom: 8px; }
 
     .project-links {
       display: flex;
@@ -170,6 +123,25 @@
       gap: 12px;
       margin-top: 24px;
     }
+
+    .button {
+      display: inline-block;
+      padding: 11px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .button:hover { opacity: 0.85; }
 
     footer {
       border-top: 1px solid var(--border);
@@ -186,12 +158,8 @@
         flex-direction: column;
       }
 
-      .hero { padding: 65px 0; }
-
       .grid { grid-template-columns: 1fr; }
-
       .card { padding: 22px; }
-
       section { padding: 32px 0; }
     }
 
@@ -206,7 +174,7 @@
   <nav class="container" aria-label="メインナビゲーション">
     <a class="logo" href="#">t824-t / Portfolio</a>
     <div class="nav-links">
-      <a href="#about">About</a>
+      <a href="#about">自己紹介</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -216,29 +184,13 @@
 
 <main class="container">
 
-  <div class="hero">
-    <div class="eyebrow">SOFTWARE ENGINEER PORTFOLIO</div>
-    <h1>技術を学び、<br>課題を解決する。</h1>
-    <p class="lead">
-      Java・Spring Bootを中心にWebアプリケーションを開発しています。
-      AWSでの公開・運用にも取り組み、設計から実装、テスト、
-      デプロイまで一貫して学習・実践しています。
-    </p>
-    <div class="buttons">
-      <a class="button primary" href="#projects">制作実績を見る</a>
-      <a class="button" href="https://github.com/t824-t"
-         target="_blank" rel="noopener noreferrer">GitHubを見る</a>
-    </div>
-  </div>
-
   <section id="about">
-    <h2>About</h2>
+    <h2>自己紹介</h2>
     <div class="card">
-      <h3>自己紹介</h3>
       <p>
-        異業種での実務経験を経て、ソフトウェア開発を学んでいます。
-        オーストラリアで約4年間働いた経験があり、
-        英語環境で新しい技術を習得してきました。
+        製造業や福祉業などでの経験を経て、ソフトウェア開発を学んでいます。
+        IELTSで6.0を取得後、オーストラリアでネイティブスピーカーに囲まれた環境で
+        約3年間働いた経験があり、英語でのコミュニケーションは問題なく行えます。
       </p>
       <p>
         職業訓練でプログラミングを学び、
@@ -268,23 +220,6 @@
         <span class="tag">AWS EC2</span>
         <span class="tag">nginx</span>
       </div>
-
-      <h4>主な機能</h4>
-      <ul>
-        <li>食事の登録・編集・削除、検索</li>
-        <li>カロリー・PFCの目標管理</li>
-        <li>栄養情報のダッシュボード表示</li>
-        <li>体重記録・推移グラフ</li>
-        <li>ユーザー認証とユーザー別データ管理</li>
-      </ul>
-
-      <h4>工夫した点</h4>
-      <ul>
-        <li>MVC構成による役割分離</li>
-        <li>Spring Securityによる認証・CSRF対策</li>
-        <li>AWS EC2・HTTPSによる公開運用</li>
-        <li>画面表示・セキュリティ関連の自動テスト</li>
-      </ul>
 
       <div class="project-links">
         <a class="button primary"
@@ -328,9 +263,7 @@
   <section id="contact">
     <h2>Contact</h2>
     <div class="card">
-      <p>
-        制作物や開発履歴はGitHubで公開しています。
-      </p>
+      <p>制作物や開発履歴はGitHubで公開しています。</p>
       <a class="button" href="https://github.com/t824-t"
          target="_blank" rel="noopener noreferrer">
         GitHubプロフィール
